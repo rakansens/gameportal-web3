@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
@@ -17,7 +19,7 @@ const Game3D: React.FC = () => {
   }, [startGame]);
 
   return (
-    <div className="w-full h-screen">
+    <div className="fixed inset-0 w-full h-full">
       <Canvas
         shadows
         dpr={[1, 2]}
@@ -27,6 +29,7 @@ const Game3D: React.FC = () => {
           stencil: false,
           depth: true,
         }}
+        style={{ width: '100%', height: '100%' }}
       >
         {/* カメラ設定 */}
         <PerspectiveCamera
